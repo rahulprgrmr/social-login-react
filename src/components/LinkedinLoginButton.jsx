@@ -1,11 +1,12 @@
+
 import { generateCodeVerifier, generateCodeChallenge } from "../pkceUtils";
 
-const clientId = "67efd223-2c24-413b-ba62-b250d3e11aee";
+const clientId = "86l2ibw5tb484j";
 const redirectUri = "http://localhost:3003";
 // const scope = "openid profile email offline_access https://graph.microsoft.com/Calendars.ReadWrite";
-const scope = "openid profile email offline_access https://graph.microsoft.com/User.Read";
+const scope = "openid profile email ";
 
-const handleMicrosoftLogin = async () => {
+const handleLinkedinLogin = async () => {
   const codeVerifier = generateCodeVerifier();
   const codeChallenge = await generateCodeChallenge(codeVerifier);
 
@@ -15,17 +16,16 @@ const handleMicrosoftLogin = async () => {
     client_id: clientId,
     response_type: "code",
     redirect_uri: redirectUri,
-    response_mode: "query",
     scope,
     //code_challenge: codeChallenge,
     //code_challenge_method: "S256",
   });
 
-  window.location.href = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?${params.toString()}`;
+  window.location.href = `https://www.linkedin.com/oauth/v2/authorization?${params.toString()}`;
 };
 
-function NewMicrosoftLoginButton() {
-  return <button onClick={() => handleMicrosoftLogin()}>Sign in with Microsoft2</button>
+function NewLinkedinLoginButton() {
+  return <button onClick={() => handleLinkedinLogin()}>Sign in with LinkedIn</button>
 }
 
-export default NewMicrosoftLoginButton;
+export default NewLinkedinLoginButton;

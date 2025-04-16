@@ -6,6 +6,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import MicrosoftLoginButton from "./components/MicrosoftLoginButton";
 import GoogleCustomLoginButton from "./components/GoogleCustomLoginButton";
 import NewMicrosoftLoginButton from "./components/NewMicrosoftLoginButton";
+import NewLinkedinLoginButton from "./components/LinkedinLoginButton";
 import useAuthCode from "./useAuthCode";
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
       <MicrosoftLoginButton />
       <GoogleCustomLoginButton />
       <NewMicrosoftLoginButton />
+      <NewLinkedinLoginButton />
     </>
   );
 }
